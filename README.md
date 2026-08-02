@@ -14,4 +14,4 @@ Serve the repository root with any static file server, then open `index.html`.
 
 The published GitHub Pages site is intended to live at:
 
-`https://ttf-tech.github.io/ttf-brand-site/`
+`https://alomahuang.github.io/ttf-brand-site/`
