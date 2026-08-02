@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260802-3" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -25,6 +25,12 @@
           <img class="brand-logo brand-logo-zh" src="assets/logo-zh-horizontal.png" alt="臺法科技人才交流協會" />
         </a>
 
+        <a href="index.html" class="language-link" hreflang="fr" aria-label="切換到法文版">
+          <span class="language-current" aria-hidden="true">中文</span>
+          <span class="language-divider" aria-hidden="true">/</span>
+          <span lang="fr">FR</span>
+        </a>
+
         <button
           class="nav-toggle"
           type="button"
@@ -32,7 +38,7 @@
           aria-controls="site-nav"
           aria-label="開啟選單"
         >
-          Menu
+          選單
         </button>
 
         <nav id="site-nav" class="site-nav" aria-label="主要導覽">
@@ -40,7 +46,6 @@
           <a href="#publics">對象</a>
           <a href="#fonctionnement">步驟</a>
           <a href="#rejoindre" class="nav-cta">聯絡</a>
-          <a href="index.html" class="language-link" hreflang="fr" aria-label="切換到法文版">FR</a>
         </nav>
       </div>
     </header>
@@ -227,21 +232,37 @@
 
     <footer class="site-footer">
       <div class="container footer-shell">
-        <a href="#accueil">
+        <a class="footer-brand" href="#accueil">
           <img class="footer-logo" src="assets/logo-zh-horizontal.png" alt="臺法科技人才交流協會" />
         </a>
-        <ul class="footer-links">
-          <li><a href="mentions-legales.html">法律資訊</a></li>
-          <li>
-            <a
-              href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
-              target="_blank"
-              rel="noopener"
-              type="application/pdf"
-            >協會章程（PDF）</a>
-          </li>
-          <li><a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a></li>
-        </ul>
+        <nav class="footer-nav" aria-label="頁尾連結">
+          <div class="footer-group">
+            <p class="footer-heading">文件</p>
+            <ul class="footer-links">
+              <li><a href="mentions-legales.html">法律資訊</a></li>
+              <li>
+                <a
+                  href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  type="application/pdf"
+                >協會章程（PDF）</a>
+              </li>
+              <li>
+                <a
+                  href="assets/20260730%20-%20TTF%20Whtasapp%20%E5%A4%A7%E7%BE%A4%20-%20%E7%AE%A1%E7%90%86%E5%8E%9F%E5%89%87%20Final%20version.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  type="application/pdf"
+                >WhatsApp 大群管理原則（PDF）</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <p class="footer-heading">聯絡</p>
+            <a class="footer-contact" href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
+          </div>
+        </nav>
       </div>
       <p class="footer-bottom">Copyright <span id="current-year"></span> 臺法科技人才交流協會。保留所有權利。</p>
     </footer>

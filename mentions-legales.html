@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260802-3" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -27,6 +27,17 @@
             src="assets/logo-en-horizontal.png"
             alt="Taïwan Tech France Association"
           />
+        </a>
+
+        <a
+          href="zh.html"
+          class="language-link"
+          hreflang="zh-Hant"
+          aria-label="Afficher le site en chinois traditionnel"
+        >
+          <span class="language-current" aria-hidden="true">FR</span>
+          <span class="language-divider" aria-hidden="true">/</span>
+          <span lang="zh-Hant">中文</span>
         </a>
 
         <button
@@ -44,15 +55,6 @@
           <a href="index.html#publics">Pour qui</a>
           <a href="index.html#fonctionnement">Méthode</a>
           <a href="index.html#rejoindre" class="nav-cta">Contact</a>
-          <a
-            href="zh.html"
-            class="language-link"
-            lang="zh-Hant"
-            hreflang="zh-Hant"
-            aria-label="Afficher le site en chinois traditionnel"
-          >
-            中文
-          </a>
         </nav>
       </div>
     </header>
@@ -101,18 +103,34 @@
         <a class="footer-brand" href="index.html">
           <img class="footer-logo" src="assets/logo-en-horizontal.png" alt="Taïwan Tech France Association" />
         </a>
-        <ul class="footer-links">
-          <li><a href="index.html#rejoindre">Contact</a></li>
-          <li>
-            <a
-              href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
-              target="_blank"
-              rel="noopener"
-              type="application/pdf"
-            >Statuts de l’association (PDF)</a>
-          </li>
-          <li><a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a></li>
-        </ul>
+        <nav class="footer-nav" aria-label="Liens utiles">
+          <div class="footer-group">
+            <p class="footer-heading">Documents</p>
+            <ul class="footer-links">
+              <li><a href="mentions-legales.html" aria-current="page">Mentions légales</a></li>
+              <li>
+                <a
+                  href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  type="application/pdf"
+                >Statuts de l’association (PDF)</a>
+              </li>
+              <li>
+                <a
+                  href="assets/20260730%20-%20TTF%20Whtasapp%20%E5%A4%A7%E7%BE%A4%20-%20%E7%AE%A1%E7%90%86%E5%8E%9F%E5%89%87%20Final%20version.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  type="application/pdf"
+                >Règles du groupe WhatsApp (PDF)</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <p class="footer-heading">Contact</p>
+            <a class="footer-contact" href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
+          </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <p>Copyright <span id="current-year"></span> Taïwan Tech in France. Tous droits réservés.</p>
