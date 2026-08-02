@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260802-3" />
+    <link rel="stylesheet" href="styles.css?v=20260802-4" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -182,15 +182,26 @@
             </ul>
           </div>
 
-          <form class="join-form" novalidate>
+          <form
+            id="contact-form"
+            class="join-form"
+            action="https://formspree.io/f/meeyyoko"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="TTF 網站新需求" />
+            <input type="hidden" name="language" value="zh-Hant" />
+            <label class="form-honeypot" aria-hidden="true">
+              請勿填寫此欄位
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </label>
             <div class="form-row">
               <label>
                 姓名
-                <input type="text" name="name" placeholder="姓名" required />
+                <input type="text" name="name" placeholder="姓名" autocomplete="name" required />
               </label>
               <label>
                 Email
-                <input type="email" name="email" placeholder="name@example.com" required />
+                <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required />
               </label>
             </div>
 
@@ -206,7 +217,12 @@
               </label>
               <label>
                 組織
-                <input type="text" name="organization" placeholder="公司、學校或專案" />
+                <input
+                  type="text"
+                  name="organization"
+                  placeholder="公司、學校或專案"
+                  autocomplete="organization"
+                />
               </label>
             </div>
 
@@ -221,11 +237,18 @@
             </label>
 
             <div class="form-actions">
-              <button class="button button-primary" type="submit">送出需求</button>
+              <button
+                class="button button-primary"
+                type="submit"
+                data-idle-label="送出需求"
+                data-sending-label="正在送出…"
+              >
+                送出需求
+              </button>
               <p class="form-note">我們會依內容回覆合適的下一步。</p>
             </div>
 
-            <p class="form-feedback" role="status" aria-live="polite"></p>
+            <p class="form-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
           </form>
         </div>
       </section>
@@ -268,6 +291,6 @@
       <p class="footer-bottom">Copyright <span id="current-year"></span> 臺法科技人才交流協會。保留所有權利。</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260802-4"></script>
   </body>
 </html>

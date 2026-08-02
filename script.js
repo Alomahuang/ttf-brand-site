@@ -30,29 +30,56 @@ if (navToggle && siteNav) {
 }
 
 if (joinForm && formFeedback) {
-  joinForm.addEventListener("submit", (event) => {
+  const submitButton = joinForm.querySelector('button[type="submit"]');
+
+  joinForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(joinForm);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const audience = String(formData.get("audience") || "").trim();
-    const message = String(formData.get("message") || "").trim();
-
     formFeedback.classList.remove("is-success", "is-error");
+    formFeedback.textContent = "";
 
-    if (!name || !email || !audience || !message) {
-      formFeedback.textContent = isChinese
-        ? "請先填寫必填欄位，再送出訊息。"
-        : "Merci de remplir les champs obligatoires avant d'envoyer votre message.";
-      formFeedback.classList.add("is-error");
+    if (!joinForm.checkValidity()) {
+      joinForm.reportValidity();
       return;
     }
 
-    formFeedback.textContent = isChinese
-      ? "謝謝，我們已收到你的需求，會再以合適的聯絡方式回覆。"
-      : "Merci, votre demande a bien été prise en compte. Nous vous recontacterons avec le bon point d'entrée.";
-    formFeedback.classList.add("is-success");
-    joinForm.reset();
+    const idleLabel = submitButton?.dataset.idleLabel || submitButton?.textContent || "";
+    const sendingLabel = submitButton?.dataset.sendingLabel || idleLabel;
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+      submitButton.textContent = sendingLabel;
+    }
+
+    try {
+      const response = await fetch(joinForm.action, {
+        method: "POST",
+        body: new FormData(joinForm),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Formspree request failed with status ${response.status}`);
+      }
+
+      formFeedback.textContent = isChinese
+        ? "謝謝，我們已收到你的需求，會再以合適的聯絡方式回覆。"
+        : "Merci, votre demande a bien été envoyée. Nous vous répondrons avec le bon point de contact.";
+      formFeedback.classList.add("is-success");
+      joinForm.reset();
+    } catch (error) {
+      console.error(error);
+      formFeedback.textContent = isChinese
+        ? "目前無法送出需求，請稍後再試，或直接寄信至 contact@taiwantechfrance.org。"
+        : "L'envoi a échoué. Réessayez plus tard ou écrivez à contact@taiwantechfrance.org.";
+      formFeedback.classList.add("is-error");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.removeAttribute("aria-busy");
+        submitButton.textContent = idleLabel;
+      }
+    }
   });
 }

@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260802-3" />
+    <link rel="stylesheet" href="styles.css?v=20260802-4" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -195,15 +195,26 @@
             </ul>
           </div>
 
-          <form class="join-form" novalidate>
+          <form
+            id="contact-form"
+            class="join-form"
+            action="https://formspree.io/f/meeyyoko"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="Nouvelle demande depuis le site TTF" />
+            <input type="hidden" name="language" value="fr" />
+            <label class="form-honeypot" aria-hidden="true">
+              Ne pas remplir ce champ
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </label>
             <div class="form-row">
               <label>
                 Votre nom
-                <input type="text" name="name" placeholder="Nom et prénom" required />
+                <input type="text" name="name" placeholder="Nom et prénom" autocomplete="name" required />
               </label>
               <label>
                 Email
-                <input type="email" name="email" placeholder="nom@entreprise.fr" required />
+                <input type="email" name="email" placeholder="nom@entreprise.fr" autocomplete="email" required />
               </label>
             </div>
 
@@ -219,7 +230,12 @@
               </label>
               <label>
                 Organisation
-                <input type="text" name="organization" placeholder="Entreprise, école ou projet" />
+                <input
+                  type="text"
+                  name="organization"
+                  placeholder="Entreprise, école ou projet"
+                  autocomplete="organization"
+                />
               </label>
             </div>
 
@@ -234,11 +250,18 @@
             </label>
 
             <div class="form-actions">
-              <button class="button button-primary" type="submit">Envoyer la demande</button>
+              <button
+                class="button button-primary"
+                type="submit"
+                data-idle-label="Envoyer la demande"
+                data-sending-label="Envoi en cours…"
+              >
+                Envoyer la demande
+              </button>
               <p class="form-note">Nous vous répondrons avec le point de contact adapté.</p>
             </div>
 
-            <p class="form-feedback" role="status" aria-live="polite"></p>
+            <p class="form-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
           </form>
         </div>
       </section>
@@ -281,6 +304,6 @@
       <p class="footer-bottom">Copyright <span id="current-year"></span> Taiwan Tech France Association. Tous droits réservés.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260802-4"></script>
   </body>
 </html>

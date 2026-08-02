@@ -530,6 +530,7 @@ td:first-child {
 .join-form {
   grid-column: 7 / span 6;
   display: grid;
+  width: 100%;
   gap: var(--space-4);
   min-width: 0;
   border-top: 3px solid var(--accent);
@@ -547,16 +548,34 @@ td:first-child {
 .join-form input,
 .join-form select,
 .join-form textarea {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
+  font-size: 1rem;
   padding: 0.78rem 0.85rem;
 }
 
+.join-form input,
+.join-form select {
+  min-height: 44px;
+}
+
 .join-form textarea {
+  min-height: 8.5rem;
   resize: vertical;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .join-form input:focus-visible,
@@ -585,12 +604,22 @@ td:first-child {
   font-weight: 600;
 }
 
+.form-feedback:empty {
+  visibility: hidden;
+}
+
 .form-feedback.is-success {
   color: var(--success);
 }
 
 .form-feedback.is-error {
   color: var(--danger);
+}
+
+.join-form .button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
 }
 
 .site-footer {
@@ -873,6 +902,14 @@ td:first-child {
   .form-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .join-form {
+    gap: var(--space-3);
+  }
+
+  .join-form label {
+    flex: 0 1 auto;
   }
 
   .footer-nav {
