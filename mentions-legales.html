@@ -16,128 +16,102 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260804-9" />
+    <link rel="stylesheet" href="styles.css?v=20260804-10" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
 
-    <header class="site-header">
-      <div class="container masthead">
-        <a class="brand" href="index.html" aria-label="Retour à l'accueil">
-          <img
-            class="brand-logo"
-            src="assets/logo-en-horizontal.png"
-            alt="Taïwan Tech France Association"
-          />
+    <header class="journal-header">
+      <div class="container journal-nav-shell">
+        <a class="journal-brand" href="index.html" aria-label="Taiwan Tech France Association, accueil">
+          <img src="assets/logo-en-horizontal.png" alt="Taiwan Tech France Association" />
         </a>
-
-        <a
-          href="zh.html"
-          class="language-link"
-          hreflang="zh-Hant"
-          aria-label="Afficher le site en chinois traditionnel"
-        >
-          <span class="language-current" aria-hidden="true">FR</span>
-          <span class="language-divider" aria-hidden="true">/</span>
-          <span lang="zh-Hant">中文</span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Ouvrir le menu"
-        >
-          <span class="nav-toggle-label">Menu</span>
-          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
-        </button>
-
-        <nav id="site-nav" class="site-nav" aria-label="Navigation secondaire">
+        <nav id="journal-nav" class="journal-nav" aria-label="Navigation principale">
           <a href="index.html#reseau">Mission</a>
           <a href="index.html#publics-accompagnes">Pour qui</a>
           <a href="index.html#methode-association">Méthode</a>
-          <a href="index.html#contact" class="nav-cta">Contact</a>
+          <a href="index.html#contact">Contact</a>
         </nav>
+        <div class="journal-tools">
+          <a class="journal-language" href="zh.html" hreflang="zh-Hant" aria-label="Afficher le site en chinois traditionnel">中文</a>
+          <button class="journal-menu-toggle" type="button" aria-expanded="false" aria-controls="journal-nav" aria-label="Ouvrir le menu">
+            <span aria-hidden="true"></span><span aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main id="main-content" class="legal-main">
-      <div class="container">
-        <article class="legal-card">
-          <p class="eyebrow">Informations légales</p>
-          <h1>Mentions légales</h1>
-          <p>
-            Cette page sert de base et devra être complétée avec les informations officielles
-            de l'association avant la mise en ligne publique.
-          </p>
+    <main id="main-content" class="legal-page">
+      <section class="legal-hero">
+        <div class="container legal-hero-grid">
+          <div>
+            <p class="journal-kicker">Informations légales</p>
+            <h1>Mentions légales</h1>
+            <p>Informations relatives à l’éditeur, à la publication, à l’hébergement et au traitement des données du site.</p>
+          </div>
+          <aside class="legal-meta" aria-label="Identification du document">
+            <span>Document public</span>
+            <strong>Taiwan Tech France Association</strong>
+            <a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
+          </aside>
+        </div>
+      </section>
 
-          <section>
-            <h2>Éditeur du site</h2>
-            <p><strong>Nom de l'association :</strong> Taiwan Tech France Association</p>
-            <p><strong>Forme :</strong> Association loi 1901</p>
-            <p><strong>Siège social :</strong> À compléter</p>
-            <p><strong>Email :</strong> contact@taiwantechfrance.org</p>
-          </section>
+      <section class="legal-document">
+        <div class="container legal-layout">
+          <aside class="legal-sidebar">
+            <nav class="legal-toc" aria-label="Sommaire des mentions légales">
+              <p>Sur cette page</p>
+              <a href="#editeur">Éditeur du site</a>
+              <a href="#publication">Direction de la publication</a>
+              <a href="#hebergement">Hébergement</a>
+              <a href="#donnees">Données personnelles</a>
+            </nav>
+            <div class="legal-downloads">
+              <p>Documents de référence</p>
+              <a href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf" target="_blank" rel="noopener" type="application/pdf">Statuts de l’association <span>PDF</span></a>
+              <a href="assets/20260730%20-%20TTF%20Whtasapp%20%E5%A4%A7%E7%BE%A4%20-%20%E7%AE%A1%E7%90%86%E5%8E%9F%E5%89%87%20Final%20version.pdf" target="_blank" rel="noopener" type="application/pdf">Règles du groupe WhatsApp <span>PDF</span></a>
+            </div>
+          </aside>
 
-          <section>
-            <h2>Direction de la publication</h2>
-            <p>Nom de la personne responsable à compléter.</p>
-          </section>
+          <article class="legal-content">
+            <p class="legal-notice">Certaines informations officielles doivent encore être complétées avant validation définitive de cette page.</p>
 
-          <section>
-            <h2>Hébergement</h2>
-            <p>Nom de l'hébergeur, adresse et coordonnées à compléter.</p>
-          </section>
+            <section id="editeur">
+              <h2>Éditeur du site</h2>
+              <dl class="legal-facts">
+                <div><dt>Nom de l’association</dt><dd>Taiwan Tech France Association</dd></div>
+                <div><dt>Forme</dt><dd>Association loi 1901</dd></div>
+                <div><dt>Siège social</dt><dd>À compléter</dd></div>
+                <div><dt>Email</dt><dd><a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a></dd></div>
+              </dl>
+            </section>
 
-          <section>
-            <h2>Données personnelles</h2>
-            <p>
-              Si le formulaire est connecté à un service externe, précisez les données collectées,
-              leur finalité, la durée de conservation et les modalités d'exercice des droits.
-            </p>
-          </section>
-        </article>
-      </div>
+            <section id="publication">
+              <h2>Direction de la publication</h2>
+              <p>Nom de la personne responsable à compléter.</p>
+            </section>
+
+            <section id="hebergement">
+              <h2>Hébergement</h2>
+              <p>Nom de l’hébergeur, adresse et coordonnées à compléter.</p>
+            </section>
+
+            <section id="donnees">
+              <h2>Données personnelles</h2>
+              <p>Si le formulaire est connecté à un service externe, précisez les données collectées, leur finalité, la durée de conservation et les modalités d’exercice des droits.</p>
+            </section>
+          </article>
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-shell">
-        <a class="footer-brand" href="index.html">
-          <img class="footer-logo" src="assets/logo-en-horizontal.png" alt="Taïwan Tech France Association" />
-        </a>
-        <nav class="footer-nav" aria-label="Liens utiles">
-          <div class="footer-group">
-            <p class="footer-heading">Documents</p>
-            <ul class="footer-links">
-              <li><a href="mentions-legales.html" aria-current="page">Mentions légales</a></li>
-              <li>
-                <a
-                  href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  type="application/pdf"
-                >Statuts de l’association (PDF)</a>
-              </li>
-              <li>
-                <a
-                  href="assets/20260730%20-%20TTF%20Whtasapp%20%E5%A4%A7%E7%BE%A4%20-%20%E7%AE%A1%E7%90%86%E5%8E%9F%E5%89%87%20Final%20version.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  type="application/pdf"
-                >Règles du groupe WhatsApp (PDF)</a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-group">
-            <p class="footer-heading">Contact</p>
-            <a class="footer-contact" href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <p>Copyright <span id="current-year"></span> Taiwan Tech France Association. Tous droits réservés.</p>
-      </div>
+    <footer class="journal-footer">
+      <nav class="container journal-footer-links" aria-label="Liens de pied de page">
+        <a href="mentions-legales.html" aria-current="page">Mentions légales</a>
+        <a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
+      </nav>
+      <p class="journal-copyright">Copyright <span data-current-year></span> Taiwan Tech France Association.</p>
     </footer>
 
     <script src="script.js?v=20260804-3"></script>
