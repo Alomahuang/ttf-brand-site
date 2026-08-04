@@ -3054,6 +3054,7 @@ html[data-theme="new"] .journal-proof {
 html[data-theme="new"] .journal-hero-visual {
   grid-column: 8 / span 5;
   display: grid;
+  grid-template-rows: 1fr;
   place-items: center;
   min-height: 720px;
   border-color: var(--institution-line);
@@ -3067,6 +3068,7 @@ html[data-theme="new"] .journal-index {
 }
 
 html[data-theme="new"] .journal-symbol {
+  grid-row: 1;
   width: 100%;
   max-width: 380px;
   margin: 0;
