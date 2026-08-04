@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260804-13" />
+    <link rel="stylesheet" href="styles.css?v=20260804-14" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -102,15 +102,22 @@
         </section>
 
         <section class="journal-fieldwork">
-          <div class="container journal-fieldwork-grid">
-            <div class="journal-section-heading journal-reveal">
-              <p class="journal-kicker">Ce que nous faisons</p>
-              <h2>Un accompagnement concret et attentif.</h2>
+          <div class="container journal-fieldwork-grid" data-activity-carousel>
+            <div class="journal-activity-heading">
+              <div class="journal-section-heading journal-reveal">
+                <p class="journal-kicker">Ce que nous faisons</p>
+                <h2>D’une conversation à une rencontre utile.</h2>
+              </div>
+              <div class="journal-activity-controls" aria-label="Parcourir les activités">
+                <button type="button" data-activity-scroll="-1" aria-label="Voir l’activité précédente">←</button>
+                <button type="button" data-activity-scroll="1" aria-label="Voir l’activité suivante">→</button>
+              </div>
             </div>
-            <div class="journal-services">
-              <article class="journal-service journal-reveal"><span>01</span><div><h3>Rencontres contextualisées</h3><p>Chaque mise en relation commence par une lecture claire du besoin et des attentes des deux côtés.</p></div></article>
-              <article class="journal-service journal-reveal"><span>02</span><div><h3>Retours de terrain</h3><p>Des membres partagent les repères qui aident à comprendre le travail, les études et les usages locaux.</p></div></article>
-              <article class="journal-service journal-reveal"><span>03</span><div><h3>Coopérations ciblées</h3><p>Ateliers, échanges et introductions prennent la forme la plus adaptée au projet, pas l’inverse.</p></div></article>
+            <div id="activities-fr" class="journal-services" data-activity-track tabindex="0" aria-label="Activités de l’association, défilement horizontal">
+              <article class="journal-service"><span>01</span><div><p class="journal-service-type">Échange individuel</p><h3>Coffee chats professionnels</h3><p>Échanger avec un professionnel en France pour préciser son projet et ses prochaines étapes.</p></div></article>
+              <article class="journal-service"><span>02</span><div><p class="journal-service-type">Préparation</p><h3>Relecture de CV</h3><p>Relire son CV dans le contexte du recrutement français et identifier les points à renforcer.</p></div></article>
+              <article class="journal-service"><span>03</span><div><p class="journal-service-type">Rencontre en ligne</p><h3>Échanges avec des professionnels</h3><p>Découvrir un métier, un secteur et des choix de parcours à travers des retours de terrain.</p></div></article>
+              <article class="journal-service"><span>04</span><div><p class="journal-service-type">Communauté</p><h3>Rencontres locales et partages</h3><p>Échanger sur le travail, les études et la vie en France lors de rencontres thématiques.</p></div></article>
             </div>
           </div>
         </section>
@@ -119,12 +126,12 @@
           <div class="container">
             <div class="journal-process-title journal-reveal">
               <p class="journal-kicker">Notre méthode</p>
-              <h2>Une démarche simple et transparente.</h2>
+              <h2>Partir du besoin pour organiser le bon échange.</h2>
             </div>
             <ol class="journal-process-list">
-              <li class="journal-reveal"><span>01</span><h3>Écouter</h3><p>Vous décrivez votre situation, votre objectif et votre calendrier.</p></li>
-              <li class="journal-reveal"><span>02</span><h3>Qualifier</h3><p>Nous identifions la ressource, le format ou la personne qui peut faire avancer le sujet.</p></li>
-              <li class="journal-reveal"><span>03</span><h3>Relier</h3><p>Nous préparons une première introduction avec le contexte nécessaire.</p></li>
+              <li class="journal-reveal"><span>01</span><h3>Écouter</h3><p>Nous clarifions votre contexte, votre objectif, vos attentes et votre calendrier.</p></li>
+              <li class="journal-reveal"><span>02</span><h3>Préparer</h3><p>Nous choisissons le membre, l’intervenant ou le format adapté au besoin.</p></li>
+              <li class="journal-reveal"><span>03</span><h3>Relier</h3><p>Nous organisons un échange contextualisé et facilitons la suite lorsqu’elle est utile.</p></li>
             </ol>
           </div>
         </section>
@@ -214,6 +221,6 @@
           </nav>
         </div>
       </footer>
-    <script src="script.js?v=20260804-4"></script>
+    <script src="script.js?v=20260804-5"></script>
   </body>
 </html>

@@ -3799,3 +3799,157 @@ html[data-theme="new"] .legal-content a:focus-visible {
     gap: 8px;
   }
 }
+
+/* Activity programme: a compact, swipeable catalogue instead of another card grid. */
+html[data-theme="new"] .journal-fieldwork-grid {
+  display: block;
+}
+
+html[data-theme="new"] .journal-activity-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+html[data-theme="new"] .journal-activity-controls {
+  display: none;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+html.js[data-theme="new"] .journal-activity-controls {
+  display: flex;
+}
+
+html[data-theme="new"] .journal-activity-controls button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--institution-ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--institution-ink);
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition:
+    background-color 700ms var(--motion-ease),
+    color 700ms var(--motion-ease),
+    transform 700ms var(--motion-ease),
+    opacity 700ms var(--motion-ease);
+}
+
+html[data-theme="new"] .journal-activity-controls button:hover:not(:disabled) {
+  background: var(--institution-ink);
+  color: #ffffff;
+}
+
+html[data-theme="new"] .journal-activity-controls button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+html[data-theme="new"] .journal-activity-controls button:focus-visible,
+html[data-theme="new"] .journal-services:focus-visible {
+  outline: 3px solid var(--institution-gold);
+  outline-offset: 4px;
+}
+
+html[data-theme="new"] .journal-activity-controls button:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+html[data-theme="new"] .journal-services {
+  display: flex;
+  grid-column: auto;
+  gap: 24px;
+  margin-top: 48px;
+  padding: 4px 0 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scrollbar-color: var(--institution-blue) #d8e0e6;
+  scrollbar-width: thin;
+}
+
+html[data-theme="new"] .journal-service {
+  flex: 0 0 clamp(280px, 31vw, 380px);
+  min-height: 304px;
+  grid-template-columns: 1fr;
+  align-content: space-between;
+  gap: 40px;
+  border: 1px solid #aebac3;
+  padding: 32px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  transition:
+    border-color 700ms var(--motion-ease),
+    transform 700ms var(--motion-ease);
+}
+
+html[data-theme="new"] .journal-service:last-child {
+  border-bottom: 1px solid #aebac3;
+}
+
+html[data-theme="new"] .journal-service:hover {
+  border-color: var(--institution-blue);
+  transform: translateY(-4px);
+}
+
+html[data-theme="new"] .journal-service > span {
+  width: max-content;
+  color: var(--institution-red);
+  font-family: "Geist Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+html[data-theme="new"] .journal-service h3 {
+  margin: 8px 0 0;
+  text-wrap: balance;
+}
+
+html[data-theme="new"] .journal-service .journal-service-type {
+  margin: 0;
+  color: var(--institution-blue);
+  font-family: "Geist Mono", monospace;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+
+html[data-theme="new"] .journal-service h3 + p {
+  text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+  html[data-theme="new"] .journal-activity-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  html[data-theme="new"] .journal-services {
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  html[data-theme="new"] .journal-service {
+    flex-basis: calc(100% - 32px);
+    min-height: 288px;
+    gap: 32px;
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="new"] .journal-services {
+    scroll-behavior: auto;
+  }
+
+  html[data-theme="new"] .journal-service:hover {
+    transform: none;
+  }
+}
