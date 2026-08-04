@@ -2915,3 +2915,429 @@ html.js[data-theme="new"] .new-reveal.is-visible {
     color: #ffffff;
   }
 }
+
+/* Calm institutional direction for the New association experience. */
+html[data-theme="new"] {
+  --institution-ink: #14283b;
+  --institution-blue: #174f86;
+  --institution-red: #a42a36;
+  --institution-gold: #b4935f;
+  --institution-paper: #f7f7f4;
+  --institution-mist: #eef2f4;
+  --institution-line: #d6dde2;
+  --institution-muted: #526575;
+}
+
+html[data-theme="new"] .theme-toolbar {
+  border-bottom: 1px solid var(--institution-line);
+  background: #ffffff;
+}
+
+html[data-theme="new"] .theme-switch {
+  border-color: var(--institution-line);
+  background: #f1f2f1;
+}
+
+html[data-theme="new"] .theme-switch button {
+  color: #667581;
+}
+
+html[data-theme="new"] .theme-switch button[aria-pressed="true"] {
+  background: var(--institution-ink);
+  color: #ffffff;
+}
+
+html[data-theme="new"] .theme-switch button:hover,
+html[data-theme="new"] .theme-switch button[aria-pressed="true"]:hover {
+  color: var(--institution-blue);
+}
+
+html[data-theme="new"] .theme-switch button[aria-pressed="true"]:hover {
+  color: #ffffff;
+}
+
+html[data-theme="new"] body {
+  background: var(--institution-paper);
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-header {
+  border-color: var(--institution-line);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+html[data-theme="new"] .journal-nav a,
+html[data-theme="new"] .journal-language {
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-language {
+  border-color: var(--institution-line);
+  background: #ffffff;
+}
+
+html[data-theme="new"] .journal-hero,
+html[data-theme="new"] .journal-hero-grid {
+  min-height: 720px;
+}
+
+html[data-theme="new"] .journal-hero {
+  border-color: var(--institution-line);
+  background: #ffffff;
+}
+
+html[data-theme="new"] .journal-hero-copy {
+  grid-column: 1 / span 7;
+  padding: 96px 80px 96px 0;
+}
+
+html[data-theme="new"] .journal-kicker {
+  color: var(--institution-blue);
+}
+
+html[data-theme="new"] .journal-hero h1 {
+  max-width: 680px;
+  background: none;
+  color: var(--institution-ink);
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 600;
+}
+
+html[data-theme="new"] .journal-lead {
+  color: var(--institution-muted);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+html[data-theme="new"] .journal-primary {
+  border-color: var(--institution-blue);
+  background: var(--institution-blue);
+}
+
+html[data-theme="new"] .journal-primary:hover {
+  border-color: var(--institution-ink);
+  background: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-proof {
+  color: #687986;
+}
+
+html[data-theme="new"] .journal-hero-visual {
+  grid-column: 8 / span 5;
+  display: grid;
+  place-items: center;
+  min-height: 720px;
+  border-color: var(--institution-line);
+  background: var(--institution-mist);
+  padding: 64px;
+}
+
+html[data-theme="new"] .journal-axis,
+html[data-theme="new"] .journal-index {
+  display: none;
+}
+
+html[data-theme="new"] .journal-symbol {
+  width: 100%;
+  max-width: 420px;
+  margin: 0;
+  background: #ffffff;
+  padding: 48px;
+  transform: none;
+}
+
+html[data-theme="new"] .journal-manifesto {
+  min-height: 520px;
+  border-bottom: 1px solid var(--institution-line);
+  background: var(--institution-paper);
+  color: var(--institution-ink);
+  padding: 96px 0;
+}
+
+html[data-theme="new"] .journal-manifesto .journal-kicker {
+  color: var(--institution-red);
+}
+
+html[data-theme="new"] .journal-manifesto h2 {
+  max-width: 920px;
+  color: var(--institution-ink);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+html[data-theme="new"] .journal-manifesto .tagline-word {
+  color: rgba(20, 40, 59, 0.28);
+}
+
+html[data-theme="new"] .journal-manifesto .tagline-word.is-active {
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-pathways,
+html[data-theme="new"] .journal-fieldwork,
+html[data-theme="new"] .journal-process,
+html[data-theme="new"] .journal-resources,
+html[data-theme="new"] .journal-contact,
+html[data-theme="new"] .journal-faq {
+  padding: 80px 0;
+}
+
+html[data-theme="new"] .journal-section-heading h2,
+html[data-theme="new"] .journal-process-title h2,
+html[data-theme="new"] .journal-contact-copy h2 {
+  color: var(--institution-ink);
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+html[data-theme="new"] .journal-pathways {
+  border-bottom: 1px solid var(--institution-line);
+  background: #ffffff;
+}
+
+html[data-theme="new"] .journal-pathway-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  margin-top: 64px;
+  border-top: 1px solid var(--institution-line);
+  border-bottom: 1px solid var(--institution-line);
+}
+
+html[data-theme="new"] .journal-pathway,
+html[data-theme="new"] .journal-pathway-organisation {
+  min-height: 360px;
+  background: transparent;
+  color: var(--institution-ink);
+  padding: 40px 48px 40px 0;
+}
+
+html[data-theme="new"] .journal-pathway + .journal-pathway {
+  border-left: 1px solid var(--institution-line);
+  padding-right: 0;
+  padding-left: 48px;
+}
+
+html[data-theme="new"] .journal-pathway-talent .journal-pathway-label {
+  color: var(--institution-red);
+}
+
+html[data-theme="new"] .journal-pathway-organisation .journal-pathway-label {
+  color: var(--institution-blue);
+}
+
+html[data-theme="new"] .journal-pathway h3 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+html[data-theme="new"] .journal-pathway > p:not(.journal-pathway-label) {
+  color: var(--institution-muted);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+html[data-theme="new"] .journal-pathway ul {
+  border-color: var(--institution-line);
+}
+
+html[data-theme="new"] .journal-fieldwork {
+  border-bottom: 1px solid var(--institution-line);
+  background: var(--institution-paper);
+}
+
+html[data-theme="new"] .journal-service {
+  border-color: #aebac3;
+}
+
+html[data-theme="new"] .journal-service > span {
+  color: var(--institution-red);
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+html[data-theme="new"] .journal-service h3 {
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-service p {
+  color: var(--institution-muted);
+}
+
+html[data-theme="new"] .journal-process {
+  border-bottom: 1px solid var(--institution-line);
+  background: var(--institution-mist);
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-process .journal-kicker {
+  color: var(--institution-blue);
+}
+
+html[data-theme="new"] .journal-process-title h2,
+html[data-theme="new"] .journal-process-list h3 {
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-process-list {
+  border-color: #aebac3;
+}
+
+html[data-theme="new"] .journal-process-list li + li {
+  border-color: #aebac3;
+}
+
+html[data-theme="new"] .journal-process-list span {
+  color: var(--institution-red);
+}
+
+html[data-theme="new"] .journal-process-list p {
+  color: var(--institution-muted);
+}
+
+html[data-theme="new"] .journal-resources {
+  border-bottom: 1px solid var(--institution-line);
+  background: #ffffff;
+}
+
+html[data-theme="new"] .journal-document-list a {
+  border-color: #aebac3;
+  color: var(--institution-ink);
+}
+
+html[data-theme="new"] .journal-document-list strong {
+  color: var(--institution-red);
+}
+
+html[data-theme="new"] .journal-contact {
+  border-bottom: 1px solid var(--institution-line);
+  background: var(--institution-paper);
+}
+
+html[data-theme="new"] .journal-contact-copy > p:not(.journal-kicker) {
+  color: var(--institution-muted);
+}
+
+html[data-theme="new"] .journal-form {
+  border-color: var(--institution-line);
+  background: #ffffff;
+  padding: 40px;
+}
+
+html[data-theme="new"] .journal-form input,
+html[data-theme="new"] .journal-form select,
+html[data-theme="new"] .journal-form textarea {
+  border-color: #9eacb7;
+  background: #fbfcfc;
+}
+
+html[data-theme="new"] .journal-faq {
+  background: #ffffff;
+}
+
+html[data-theme="new"] .journal-faq details {
+  border-color: #aebac3;
+}
+
+html[data-theme="new"] .journal-footer {
+  background: var(--institution-ink);
+}
+
+@media (max-width: 900px) {
+  html[data-theme="new"] .journal-hero,
+  html[data-theme="new"] .journal-hero-grid {
+    min-height: auto;
+  }
+
+  html[data-theme="new"] .journal-hero-copy {
+    grid-column: 1;
+    padding: 80px 0;
+  }
+
+  html[data-theme="new"] .journal-hero-visual {
+    grid-column: 1;
+    min-height: 480px;
+    border-top: 1px solid var(--institution-line);
+    padding: 48px;
+  }
+
+  html[data-theme="new"] .journal-nav {
+    background: #ffffff;
+    backdrop-filter: none;
+  }
+}
+
+@media (max-width: 640px) {
+  html[data-theme="new"] .journal-hero-copy {
+    padding: 64px 0;
+  }
+
+  html[data-theme="new"] .journal-hero h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  html[data-theme="new"] .journal-hero-visual {
+    min-height: 360px;
+    padding: 32px 24px;
+  }
+
+  html[data-theme="new"] .journal-symbol {
+    max-width: 300px;
+    padding: 32px;
+  }
+
+  html[data-theme="new"] .journal-manifesto {
+    min-height: 440px;
+    padding: 64px 0;
+  }
+
+  html[data-theme="new"] .journal-manifesto h2,
+  html[data-theme="new"] .journal-section-heading h2,
+  html[data-theme="new"] .journal-process-title h2,
+  html[data-theme="new"] .journal-contact-copy h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  html[data-theme="new"] .journal-pathways,
+  html[data-theme="new"] .journal-fieldwork,
+  html[data-theme="new"] .journal-process,
+  html[data-theme="new"] .journal-resources,
+  html[data-theme="new"] .journal-contact,
+  html[data-theme="new"] .journal-faq {
+    padding: 64px 0;
+  }
+
+  html[data-theme="new"] .journal-pathway-grid {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+
+  html[data-theme="new"] .journal-pathway,
+  html[data-theme="new"] .journal-pathway-organisation {
+    min-height: 0;
+    padding: 32px 0;
+  }
+
+  html[data-theme="new"] .journal-pathway + .journal-pathway {
+    border-top: 1px solid var(--institution-line);
+    border-left: 0;
+    padding: 32px 0;
+  }
+
+  html[data-theme="new"] .journal-pathway-label {
+    margin-bottom: 32px;
+  }
+
+  html[data-theme="new"] .journal-form {
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="new"] .journal-manifesto .tagline-word {
+    color: var(--institution-ink);
+  }
+}
