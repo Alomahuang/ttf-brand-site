@@ -1,42 +1,6 @@
 const yearTargets = document.querySelectorAll("#current-year, [data-current-year]");
 const pageLanguage = document.documentElement.lang || "fr";
 const isChinese = pageLanguage.startsWith("zh");
-const themeButtons = document.querySelectorAll("[data-theme-option]");
-const themeStorageKey = "ttf-style";
-
-const setTheme = (theme, persist = true) => {
-  const nextTheme = theme === "old" ? "old" : "new";
-  document.documentElement.dataset.theme = nextTheme;
-  document.documentElement.classList.remove("nav-open");
-
-  document.querySelectorAll(".site-nav.is-open, .journal-nav.is-open").forEach((nav) => {
-    nav.classList.remove("is-open");
-  });
-
-  document.querySelectorAll(".nav-toggle.is-open, .journal-menu-toggle.is-open").forEach((toggle) => {
-    toggle.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", isChinese ? "開啟選單" : "Ouvrir le menu");
-  });
-
-  themeButtons.forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.themeOption === nextTheme));
-  });
-
-  if (persist) {
-    try {
-      localStorage.setItem(themeStorageKey, nextTheme);
-    } catch (error) {
-      // Theme comparison still works when storage is unavailable.
-    }
-  }
-};
-
-setTheme(document.documentElement.dataset.theme, false);
-
-themeButtons.forEach((button) => {
-  button.addEventListener("click", () => setTheme(button.dataset.themeOption));
-});
 
 yearTargets.forEach((target) => {
   target.textContent = new Date().getFullYear();
@@ -108,9 +72,7 @@ taglines.forEach((tagline) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".opening-statement, .opening-proof, #publics .section-intro, #publics .comparison, " +
-    "#fonctionnement .section-grid > div, #fonctionnement .method-list, " +
-    "#rejoindre .contact-grid > div:first-child, #rejoindre .join-form, .legal-card, .journal-reveal"
+  ".legal-card, .journal-reveal"
 );
 
 revealTargets.forEach((target) => target.classList.add("new-reveal"));
@@ -154,7 +116,7 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-document.querySelectorAll(".join-form, .journal-form").forEach((joinForm) => {
+document.querySelectorAll(".journal-form").forEach((joinForm) => {
   const formFeedback = joinForm.querySelector(".form-feedback");
   if (!formFeedback) return;
   const submitButton = joinForm.querySelector('button[type="submit"]');

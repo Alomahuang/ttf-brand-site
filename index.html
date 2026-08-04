@@ -3,14 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      document.documentElement.classList.add("js");
-      try {
-        document.documentElement.dataset.theme = localStorage.getItem("ttf-style") || "new";
-      } catch (error) {
-        document.documentElement.dataset.theme = "new";
-      }
-    </script>
+    <script>document.documentElement.classList.add("js");</script>
     <link rel="icon" href="assets/favicon.ico?v=20260802" type="image/x-icon" />
     <title>Talents taïwanais en France | Taiwan Tech France Association</title>
     <meta
@@ -28,32 +21,21 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260804-8" />
+    <link rel="stylesheet" href="styles.css?v=20260804-9" />
   </head>
   <body>
-    <a class="skip-link skip-new" href="#main-content-new">Aller au nouveau contenu</a>
-    <a class="skip-link skip-old" href="#main-content-old">Aller au contenu</a>
+    <a class="skip-link" href="#main-content">Aller au contenu</a>
 
-    <div class="theme-toolbar">
-      <div class="container theme-toolbar-inner">
-        <div class="theme-switch" role="group" aria-label="Comparer les styles du site">
-          <button type="button" data-theme-option="new" aria-pressed="true">New</button>
-          <button type="button" data-theme-option="old" aria-pressed="false">Old</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="new-experience">
-      <header class="journal-header">
+    <header class="journal-header">
         <div class="container journal-nav-shell">
-          <a class="journal-brand" href="#nouvel-accueil" aria-label="Taiwan Tech France Association, accueil">
+          <a class="journal-brand" href="#accueil" aria-label="Taiwan Tech France Association, accueil">
             <img src="assets/logo-en-horizontal.png" alt="Taiwan Tech France Association" />
           </a>
           <nav id="journal-nav" class="journal-nav" aria-label="Navigation principale">
-            <a href="#nouveau-reseau">Le réseau</a>
-            <a href="#nouveaux-publics">Pour vous</a>
-            <a href="#nouvelle-methode">Méthode</a>
-            <a href="#nouveau-contact">Contact</a>
+            <a href="#reseau">Le réseau</a>
+            <a href="#publics-accompagnes">Pour vous</a>
+            <a href="#methode-association">Méthode</a>
+            <a href="#contact">Contact</a>
           </nav>
           <div class="journal-tools">
             <a class="journal-language" href="zh.html" hreflang="zh-Hant" aria-label="Afficher le site en chinois traditionnel">中文</a>
@@ -64,8 +46,8 @@
         </div>
       </header>
 
-      <main id="main-content-new">
-        <section id="nouvel-accueil" class="journal-hero">
+      <main id="main-content">
+        <section id="accueil" class="journal-hero">
           <div class="container journal-hero-grid">
             <div class="journal-hero-copy journal-reveal">
               <p class="journal-kicker">Association à but non lucratif établie en France</p>
@@ -74,7 +56,7 @@
                 Taiwan Tech France Association accompagne les talents taïwanais et les organisations
                 françaises dans leurs échanges, leurs projets et leur compréhension mutuelle.
               </p>
-              <a class="journal-primary" href="#nouveau-contact">Contacter l’association</a>
+              <a class="journal-primary" href="#contact">Contacter l’association</a>
               <p class="journal-proof">Au service des talents, entreprises, écoles, institutions et partenaires.</p>
             </div>
             <div class="journal-hero-visual journal-reveal" aria-label="Symbole de Taiwan Tech France Association">
@@ -89,14 +71,14 @@
           </div>
         </section>
 
-        <section id="nouveau-reseau" class="journal-manifesto">
+        <section id="reseau" class="journal-manifesto">
           <div class="container">
             <p class="journal-kicker">Notre mission</p>
             <h2 class="tagline-reveal">Comprendre les besoins de chacun, partager l’expérience du terrain et créer les conditions d’une coopération durable.</h2>
           </div>
         </section>
 
-        <section id="nouveaux-publics" class="journal-pathways">
+        <section id="publics-accompagnes" class="journal-pathways">
           <div class="container">
             <div class="journal-section-heading journal-reveal">
               <p class="journal-kicker">Nos publics</p>
@@ -133,7 +115,7 @@
           </div>
         </section>
 
-        <section id="nouvelle-methode" class="journal-process">
+        <section id="methode-association" class="journal-process">
           <div class="container">
             <div class="journal-process-title journal-reveal">
               <p class="journal-kicker">Notre méthode</p>
@@ -157,7 +139,7 @@
           </div>
         </section>
 
-        <section id="nouveau-contact" class="journal-contact">
+        <section id="contact" class="journal-contact">
           <div class="container journal-contact-grid">
             <div class="journal-contact-copy journal-reveal">
               <p class="journal-kicker">Premier échange</p>
@@ -166,7 +148,7 @@
               <a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
             </div>
             <form class="journal-form" action="https://formspree.io/f/meeyyoko" method="POST">
-              <input type="hidden" name="_subject" value="Nouvelle demande depuis le nouveau site TTF" />
+              <input type="hidden" name="_subject" value="Nouvelle demande depuis le site TTF" />
               <input type="hidden" name="language" value="fr" />
               <label class="form-honeypot" aria-hidden="true">Ne pas remplir ce champ<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
               <div class="journal-form-row">
@@ -201,297 +183,6 @@
         </nav>
         <p class="journal-copyright">Copyright <span data-current-year></span> Taiwan Tech France Association.</p>
       </footer>
-    </div>
-
-    <div class="old-experience">
-
-    <header class="site-header">
-      <div class="container masthead">
-        <a class="brand" href="#accueil" aria-label="Taiwan Tech France Association, retour à l'accueil">
-          <img
-            class="brand-logo brand-logo-en"
-            src="assets/logo-en-horizontal.png"
-            alt="Taiwan Tech France Association"
-          />
-        </a>
-
-        <a
-          href="zh.html"
-          class="language-link"
-          hreflang="zh-Hant"
-          aria-label="Afficher le site en chinois traditionnel"
-        >
-          <span class="language-current" aria-hidden="true">FR</span>
-          <span class="language-divider" aria-hidden="true">/</span>
-          <span lang="zh-Hant">中文</span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Ouvrir le menu"
-        >
-          <span class="nav-toggle-label">Menu</span>
-          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
-        </button>
-
-        <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
-          <a href="#mission">Mission</a>
-          <a href="#publics">Pour qui</a>
-          <a href="#fonctionnement">Étapes</a>
-          <a href="#rejoindre" class="nav-cta">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content-old">
-      <section id="accueil" class="opening">
-        <div class="container opening-grid">
-          <div class="opening-statement">
-            <p class="context">Taiwan Tech France Association</p>
-            <h1>Relier les talents taïwanais et les organisations françaises.</h1>
-            <img class="opening-mark" src="assets/logo-mark.png" alt="" aria-hidden="true" />
-          </div>
-
-          <div class="opening-proof" aria-label="Résumé de l'association">
-            <p>
-              TTF aide les talents taïwanais en France à trouver les bons contacts, et aide les
-              organisations françaises à rencontrer des profils internationaux avec plus de contexte.
-            </p>
-            <dl class="evidence-list">
-              <div>
-                <dt>Talents</dt>
-                <dd>Étudiants, jeunes diplômés, ingénieurs, profils tech.</dd>
-              </div>
-              <div>
-                <dt>Organisations</dt>
-                <dd>Entreprises, écoles, institutions, partenaires.</dd>
-              </div>
-              <div>
-                <dt>Formats</dt>
-                <dd>Orientation, ateliers, rencontres, introductions.</dd>
-              </div>
-            </dl>
-            <div class="opening-actions">
-              <a class="button button-primary" href="#rejoindre">Prendre contact</a>
-              <a class="button button-secondary" href="#publics">Voir pour qui</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="mission" class="section">
-        <div class="container section-grid">
-          <div>
-            <p class="context">Mission</p>
-            <h2 class="tagline-reveal">Créer des rencontres utiles, pas seulement des mises en relation.</h2>
-          </div>
-          <div class="reading">
-            <p>
-              Nous écoutons le besoin, clarifions le contexte, puis orientons vers la bonne personne,
-              le bon format ou la bonne ressource.
-            </p>
-            <ul class="contact-checklist">
-              <li>Clarifier le besoin.</li>
-              <li>Orienter vers le bon format.</li>
-              <li>Faciliter un premier contact.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="publics" class="section section-contrast">
-        <div class="container">
-          <div class="section-intro">
-            <p class="context">Pour qui</p>
-            <h2>Deux publics principaux.</h2>
-          </div>
-
-          <div class="comparison">
-            <article>
-              <h3>Talents taïwanais</h3>
-              <p>Pour mieux comprendre le marché français, préparer son parcours et construire un réseau local.</p>
-              <ul>
-                <li>Orientation carrière.</li>
-                <li>Réseau local.</li>
-                <li>Premières opportunités.</li>
-              </ul>
-            </article>
-            <article>
-              <h3>Organisations françaises</h3>
-              <p>Pour rencontrer des profils taïwanais qualifiés dans un cadre clair et fiable.</p>
-              <ul>
-                <li>Profils internationaux.</li>
-                <li>Contexte culturel.</li>
-                <li>Rencontres ciblées.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="fonctionnement" class="section">
-        <div class="container section-grid">
-          <div>
-            <p class="context">Étapes</p>
-            <h2>Un parcours simple.</h2>
-          </div>
-
-          <ol class="method-list">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>Comprendre</h3>
-                <p>Votre profil, votre besoin et votre calendrier.</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>Orienter</h3>
-                <p>La bonne ressource, personne ou rencontre.</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>Connecter</h3>
-                <p>Un premier contact clair et utile.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section id="rejoindre" class="section section-contact">
-        <div class="container contact-grid">
-          <div>
-            <p class="context">Contact</p>
-            <h2>Présentez-nous votre besoin.</h2>
-            <p>
-              Quelques lignes suffisent. Pour aller plus vite, indiquez :
-            </p>
-            <ul class="contact-checklist">
-              <li>Votre profil.</li>
-              <li>Votre organisation.</li>
-              <li>Votre calendrier.</li>
-              <li>Le type de contact recherché.</li>
-            </ul>
-          </div>
-
-          <form
-            id="contact-form"
-            class="join-form"
-            action="https://formspree.io/f/meeyyoko"
-            method="POST"
-          >
-            <input type="hidden" name="_subject" value="Nouvelle demande depuis le site TTF" />
-            <input type="hidden" name="language" value="fr" />
-            <label class="form-honeypot" aria-hidden="true">
-              Ne pas remplir ce champ
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-            </label>
-            <div class="form-row">
-              <label>
-                Votre nom
-                <input type="text" name="name" placeholder="Nom et prénom" autocomplete="name" required />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" placeholder="nom@entreprise.fr" autocomplete="email" required />
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label>
-                Vous êtes
-                <select name="audience" required>
-                  <option value="">Choisir une option</option>
-                  <option value="talent">Un talent taïwanais</option>
-                  <option value="company">Une entreprise</option>
-                  <option value="partner">Un partenaire</option>
-                </select>
-              </label>
-              <label>
-                Organisation
-                <input
-                  type="text"
-                  name="organization"
-                  placeholder="Entreprise, école ou projet"
-                  autocomplete="organization"
-                />
-              </label>
-            </div>
-
-            <label>
-              Votre message
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="Décrivez brièvement votre demande"
-                required
-              ></textarea>
-            </label>
-
-            <div class="form-actions">
-              <button
-                class="button button-primary"
-                type="submit"
-                data-idle-label="Envoyer la demande"
-                data-sending-label="Envoi en cours…"
-              >
-                Envoyer la demande
-              </button>
-              <p class="form-note">Nous vous répondrons avec le point de contact adapté.</p>
-            </div>
-
-            <p class="form-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-shell">
-        <a class="footer-brand" href="#accueil">
-          <img class="footer-logo" src="assets/logo-en-horizontal.png" alt="Taiwan Tech France Association" />
-        </a>
-        <nav class="footer-nav" aria-label="Liens utiles">
-          <div class="footer-group">
-            <p class="footer-heading">Documents</p>
-            <ul class="footer-links">
-              <li><a href="mentions-legales.html">Mentions légales</a></li>
-              <li>
-                <a
-                  href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  type="application/pdf"
-                >Statuts de l’association (PDF)</a>
-              </li>
-              <li>
-                <a
-                  href="assets/20260730%20-%20TTF%20Whtasapp%20%E5%A4%A7%E7%BE%A4%20-%20%E7%AE%A1%E7%90%86%E5%8E%9F%E5%89%87%20Final%20version.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  type="application/pdf"
-                >Règles du groupe WhatsApp (PDF)</a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-group">
-            <p class="footer-heading">Contact</p>
-            <a class="footer-contact" href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
-          </div>
-        </nav>
-      </div>
-      <p class="footer-bottom">Copyright <span id="current-year"></span> Taiwan Tech France Association. Tous droits réservés.</p>
-    </footer>
-
-    </div>
-
-    <script src="script.js?v=20260804-2"></script>
+    <script src="script.js?v=20260804-3"></script>
   </body>
 </html>

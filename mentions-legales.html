@@ -3,14 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      document.documentElement.classList.add("js");
-      try {
-        document.documentElement.dataset.theme = localStorage.getItem("ttf-style") || "new";
-      } catch (error) {
-        document.documentElement.dataset.theme = "new";
-      }
-    </script>
+    <script>document.documentElement.classList.add("js");</script>
     <link rel="icon" href="assets/favicon.ico?v=20260802" type="image/x-icon" />
     <title>Mentions légales | Taiwan Tech France Association</title>
     <meta
@@ -23,19 +16,10 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260804-8" />
+    <link rel="stylesheet" href="styles.css?v=20260804-9" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
-
-    <div class="theme-toolbar">
-      <div class="container theme-toolbar-inner">
-        <div class="theme-switch" role="group" aria-label="Comparer les styles du site">
-          <button type="button" data-theme-option="new" aria-pressed="true">New</button>
-          <button type="button" data-theme-option="old" aria-pressed="false">Old</button>
-        </div>
-      </div>
-    </div>
 
     <header class="site-header">
       <div class="container masthead">
@@ -70,10 +54,10 @@
         </button>
 
         <nav id="site-nav" class="site-nav" aria-label="Navigation secondaire">
-          <a href="index.html#mission">Mission</a>
-          <a href="index.html#publics">Pour qui</a>
-          <a href="index.html#fonctionnement">Méthode</a>
-          <a href="index.html#rejoindre" class="nav-cta">Contact</a>
+          <a href="index.html#reseau">Mission</a>
+          <a href="index.html#publics-accompagnes">Pour qui</a>
+          <a href="index.html#methode-association">Méthode</a>
+          <a href="index.html#contact" class="nav-cta">Contact</a>
         </nav>
       </div>
     </header>
@@ -156,6 +140,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260804-1"></script>
+    <script src="script.js?v=20260804-3"></script>
   </body>
 </html>

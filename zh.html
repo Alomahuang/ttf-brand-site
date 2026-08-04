@@ -3,14 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      document.documentElement.classList.add("js");
-      try {
-        document.documentElement.dataset.theme = localStorage.getItem("ttf-style") || "new";
-      } catch (error) {
-        document.documentElement.dataset.theme = "new";
-      }
-    </script>
+    <script>document.documentElement.classList.add("js");</script>
     <link rel="icon" href="assets/favicon.ico?v=20260802" type="image/x-icon" />
     <title>連結臺灣人才與法國組織 | 臺法科技人才交流協會</title>
     <meta
@@ -28,32 +21,21 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260804-8" />
+    <link rel="stylesheet" href="styles.css?v=20260804-9" />
   </head>
   <body>
-    <a class="skip-link skip-new" href="#main-content-new">跳到新版主要內容</a>
-    <a class="skip-link skip-old" href="#main-content-old">跳到主要內容</a>
+    <a class="skip-link" href="#main-content">跳到主要內容</a>
 
-    <div class="theme-toolbar">
-      <div class="container theme-toolbar-inner">
-        <div class="theme-switch" role="group" aria-label="比較網站樣式">
-          <button type="button" data-theme-option="new" aria-pressed="true">New</button>
-          <button type="button" data-theme-option="old" aria-pressed="false">Old</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="new-experience">
-      <header class="journal-header">
+    <header class="journal-header">
         <div class="container journal-nav-shell">
-          <a class="journal-brand" href="#nouvel-accueil" aria-label="臺法科技人才交流協會，回到首頁">
+          <a class="journal-brand" href="#accueil" aria-label="臺法科技人才交流協會，回到首頁">
             <img src="assets/logo-zh-horizontal.png" alt="臺法科技人才交流協會" />
           </a>
           <nav id="journal-nav" class="journal-nav" aria-label="主要導覽">
-            <a href="#nouveau-reseau">交流網絡</a>
-            <a href="#nouveaux-publics">適合對象</a>
-            <a href="#nouvelle-methode">合作方式</a>
-            <a href="#nouveau-contact">聯絡我們</a>
+            <a href="#reseau">交流網絡</a>
+            <a href="#publics-accompagnes">適合對象</a>
+            <a href="#methode-association">合作方式</a>
+            <a href="#contact">聯絡我們</a>
           </nav>
           <div class="journal-tools">
             <a class="journal-language" href="index.html" hreflang="fr" aria-label="切換到法文版">FR</a>
@@ -64,14 +46,14 @@
         </div>
       </header>
 
-      <main id="main-content-new">
-        <section id="nouvel-accueil" class="journal-hero">
+      <main id="main-content">
+        <section id="accueil" class="journal-hero">
           <div class="container journal-hero-grid">
             <div class="journal-hero-copy journal-reveal">
               <p class="journal-kicker">設立於法國的非營利協會</p>
               <h1>建立法國與臺灣之間長久、可信任的專業連結。</h1>
               <p class="journal-lead">臺法科技人才交流協會陪伴臺灣人才與法國組織，推動交流、合作計畫與彼此理解。</p>
-              <a class="journal-primary" href="#nouveau-contact">聯絡協會</a>
+              <a class="journal-primary" href="#contact">聯絡協會</a>
               <p class="journal-proof">服務人才、企業、學校、機構與合作夥伴。</p>
             </div>
             <div class="journal-hero-visual journal-reveal" aria-label="臺法科技人才交流協會標誌">
@@ -82,14 +64,14 @@
           </div>
         </section>
 
-        <section id="nouveau-reseau" class="journal-manifesto">
+        <section id="reseau" class="journal-manifesto">
           <div class="container">
             <p class="journal-kicker">我們的使命</p>
             <h2 class="tagline-reveal">理解彼此需求，分享在地經驗，為長期而務實的合作建立條件。</h2>
           </div>
         </section>
 
-        <section id="nouveaux-publics" class="journal-pathways">
+        <section id="publics-accompagnes" class="journal-pathways">
           <div class="container">
             <div class="journal-section-heading journal-reveal"><p class="journal-kicker">服務對象</p><h2>依照不同處境，提供合適的協助。</h2></div>
             <div class="journal-pathway-grid">
@@ -120,7 +102,7 @@
           </div>
         </section>
 
-        <section id="nouvelle-methode" class="journal-process">
+        <section id="methode-association" class="journal-process">
           <div class="container">
             <div class="journal-process-title journal-reveal"><p class="journal-kicker">合作方式</p><h2>簡單、清楚且透明的流程。</h2></div>
             <ol class="journal-process-list">
@@ -141,7 +123,7 @@
           </div>
         </section>
 
-        <section id="nouveau-contact" class="journal-contact">
+        <section id="contact" class="journal-contact">
           <div class="container journal-contact-grid">
             <div class="journal-contact-copy journal-reveal">
               <p class="journal-kicker">第一次交流</p>
@@ -150,7 +132,7 @@
               <a href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
             </div>
             <form class="journal-form" action="https://formspree.io/f/meeyyoko" method="POST">
-              <input type="hidden" name="_subject" value="TTF 新版網站需求" />
+              <input type="hidden" name="_subject" value="TTF 網站需求" />
               <input type="hidden" name="language" value="zh-Hant" />
               <label class="form-honeypot" aria-hidden="true">請勿填寫此欄位<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
               <div class="journal-form-row">
@@ -185,284 +167,6 @@
         </nav>
         <p class="journal-copyright">Copyright <span data-current-year></span> 臺法科技人才交流協會。</p>
       </footer>
-    </div>
-
-    <div class="old-experience">
-
-    <header class="site-header">
-      <div class="container masthead">
-        <a class="brand" href="#accueil" aria-label="臺法科技人才交流協會，回到首頁">
-          <img class="brand-logo brand-logo-zh" src="assets/logo-zh-horizontal.png" alt="臺法科技人才交流協會" />
-        </a>
-
-        <a href="index.html" class="language-link" hreflang="fr" aria-label="切換到法文版">
-          <span class="language-current" aria-hidden="true">中文</span>
-          <span class="language-divider" aria-hidden="true">/</span>
-          <span lang="fr">FR</span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="開啟選單"
-        >
-          <span class="nav-toggle-label">選單</span>
-          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
-        </button>
-
-        <nav id="site-nav" class="site-nav" aria-label="主要導覽">
-          <a href="#mission">使命</a>
-          <a href="#publics">對象</a>
-          <a href="#fonctionnement">步驟</a>
-          <a href="#rejoindre" class="nav-cta">聯絡</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content-old">
-      <section id="accueil" class="opening">
-        <div class="container opening-grid">
-          <div class="opening-statement">
-            <p class="context">臺法科技人才交流協會</p>
-            <h1>連結臺灣人才與法國組織。</h1>
-            <img class="opening-mark" src="assets/logo-mark.png" alt="" aria-hidden="true" />
-          </div>
-
-          <div class="opening-proof" aria-label="協會摘要">
-            <p>
-              TTF 協助在法國的臺灣人才找到合適的人脈，也協助法國組織在清楚脈絡下認識臺灣人才。
-            </p>
-            <dl class="evidence-list">
-              <div>
-                <dt>人才</dt>
-                <dd>學生、年輕畢業生、工程師、科技人才。</dd>
-              </div>
-              <div>
-                <dt>組織</dt>
-                <dd>企業、學校、機構、合作夥伴。</dd>
-              </div>
-              <div>
-                <dt>形式</dt>
-                <dd>職涯定位、工作坊、交流、介紹。</dd>
-              </div>
-            </dl>
-            <div class="opening-actions">
-              <a class="button button-primary" href="#rejoindre">聯絡協會</a>
-              <a class="button button-secondary" href="#publics">查看對象</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="mission" class="section">
-        <div class="container section-grid">
-          <div>
-            <p class="context">使命</p>
-            <h2 class="tagline-reveal">建立有用的交流，而不只是交換聯絡方式。</h2>
-          </div>
-          <div class="reading">
-            <p>
-              我們先理解需求與背景，再協助導向合適的人、活動形式或資源。
-            </p>
-            <ul class="contact-checklist">
-              <li>釐清需求。</li>
-              <li>找到合適形式。</li>
-              <li>促成第一個連結。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="publics" class="section section-contrast">
-        <div class="container">
-          <div class="section-intro">
-            <p class="context">對象</p>
-            <h2>兩個主要族群。</h2>
-          </div>
-
-          <div class="comparison">
-            <article>
-              <h3>臺灣人才</h3>
-              <p>協助理解法國職場、準備職涯方向，並建立在地網絡。</p>
-              <ul>
-                <li>職涯方向。</li>
-                <li>在地人脈。</li>
-                <li>初步機會。</li>
-              </ul>
-            </article>
-            <article>
-              <h3>法國組織</h3>
-              <p>協助接觸具潛力的臺灣人才，並讓第一次交流更清楚。</p>
-              <ul>
-                <li>國際人才。</li>
-                <li>文化脈絡。</li>
-                <li>定向交流。</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="fonctionnement" class="section">
-        <div class="container section-grid">
-          <div>
-            <p class="context">步驟</p>
-            <h2>簡單三步。</h2>
-          </div>
-
-          <ol class="method-list">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>理解</h3>
-                <p>你的背景、需求與時程。</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>導向</h3>
-                <p>合適的人、資源或活動形式。</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>連結</h3>
-                <p>建立清楚、有用的第一個接觸。</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section id="rejoindre" class="section section-contact">
-        <div class="container contact-grid">
-          <div>
-            <p class="context">聯絡</p>
-            <h2>告訴我們你的需求。</h2>
-            <p>簡短說明即可。建議包含：</p>
-            <ul class="contact-checklist">
-              <li>你的背景。</li>
-              <li>你的組織。</li>
-              <li>你的時程。</li>
-              <li>希望建立的連結。</li>
-            </ul>
-          </div>
-
-          <form
-            id="contact-form"
-            class="join-form"
-            action="https://formspree.io/f/meeyyoko"
-            method="POST"
-          >
-            <input type="hidden" name="_subject" value="TTF 網站新需求" />
-            <input type="hidden" name="language" value="zh-Hant" />
-            <label class="form-honeypot" aria-hidden="true">
-              請勿填寫此欄位
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-            </label>
-            <div class="form-row">
-              <label>
-                姓名
-                <input type="text" name="name" placeholder="姓名" autocomplete="name" required />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required />
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label>
-                身份
-                <select name="audience" required>
-                  <option value="">請選擇</option>
-                  <option value="talent">臺灣人才</option>
-                  <option value="company">企業</option>
-                  <option value="partner">合作夥伴</option>
-                </select>
-              </label>
-              <label>
-                組織
-                <input
-                  type="text"
-                  name="organization"
-                  placeholder="公司、學校或專案"
-                  autocomplete="organization"
-                />
-              </label>
-            </div>
-
-            <label>
-              訊息
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="請簡短說明你的需求"
-                required
-              ></textarea>
-            </label>
-
-            <div class="form-actions">
-              <button
-                class="button button-primary"
-                type="submit"
-                data-idle-label="送出需求"
-                data-sending-label="正在送出…"
-              >
-                送出需求
-              </button>
-              <p class="form-note">我們會依內容回覆合適的下一步。</p>
-            </div>
-
-            <p class="form-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-shell">
-        <a class="footer-brand" href="#accueil">
-          <img class="footer-logo" src="assets/logo-zh-horizontal.png" alt="臺法科技人才交流協會" />
-        </a>
-        <nav class="footer-nav" aria-label="頁尾連結">
-          <div class="footer-group">
-            <p class="footer-heading">文件</p>
-            <ul class="footer-links">
-              <li><a href="mentions-legales.html">法律資訊</a></li>
-              <li>
-                <a
-                  href="assets/20260730%20-%20TTF%20%E5%8D%94%E6%9C%83%E7%AB%A0%E7%A8%8B%20Final%20Version.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  type="application/pdf"
-                >協會章程（PDF）</a>
-              </li>
-              <li>
-                <a
-                  href="assets/20260730%20-%20TTF%20Whtasapp%20%E5%A4%A7%E7%BE%A4%20-%20%E7%AE%A1%E7%90%86%E5%8E%9F%E5%89%87%20Final%20version.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  type="application/pdf"
-                >WhatsApp 大群管理原則（PDF）</a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-group">
-            <p class="footer-heading">聯絡</p>
-            <a class="footer-contact" href="mailto:contact@taiwantechfrance.org">contact@taiwantechfrance.org</a>
-          </div>
-        </nav>
-      </div>
-      <p class="footer-bottom">Copyright <span id="current-year"></span> 臺法科技人才交流協會。保留所有權利。</p>
-    </footer>
-
-    </div>
-
-    <script src="script.js?v=20260804-2"></script>
+    <script src="script.js?v=20260804-3"></script>
   </body>
 </html>
