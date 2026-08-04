@@ -3170,7 +3170,14 @@ html[data-theme="new"] .journal-faq details {
 
 html[data-theme="new"] .journal-footer {
   background: var(--institution-ink);
-  padding: 32px 0 16px;
+  padding: 24px 0;
+}
+
+html[data-theme="new"] .journal-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 48px;
 }
 
 html[data-theme="new"] .journal-footer-links {
@@ -3192,8 +3199,10 @@ html[data-theme="new"] .journal-footer-links a:hover {
 }
 
 html[data-theme="new"] .journal-copyright {
-  margin-top: 24px;
-  padding-top: 16px;
+  width: auto;
+  margin: 0;
+  border-top: 0;
+  padding: 0;
 }
 
 @media (max-width: 900px) {
@@ -3291,11 +3300,16 @@ html[data-theme="new"] .journal-copyright {
     padding-top: 24px;
   }
 
+  html[data-theme="new"] .journal-footer-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   html[data-theme="new"] .journal-footer-links {
     align-items: flex-start;
     justify-content: flex-start;
-    flex-direction: column;
-    gap: 12px;
+    gap: 8px 24px;
   }
 }
 
