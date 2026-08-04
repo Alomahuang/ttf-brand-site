@@ -3134,7 +3134,8 @@ html[data-theme="new"] .journal-pathway-grid {
 
 html[data-theme="new"] .journal-pathway,
 html[data-theme="new"] .journal-pathway-organisation {
-  min-height: 360px;
+  display: block;
+  min-height: 0;
   background: transparent;
   color: var(--institution-ink);
   padding: 40px 48px 40px 0;
@@ -3154,7 +3155,12 @@ html[data-theme="new"] .journal-pathway-organisation .journal-pathway-label {
   color: var(--institution-blue);
 }
 
+html[data-theme="new"] .journal-pathway .journal-pathway-label {
+  margin: 0 0 32px;
+}
+
 html[data-theme="new"] .journal-pathway h3 {
+  margin: 0 0 16px;
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
@@ -3166,6 +3172,7 @@ html[data-theme="new"] .journal-pathway > p:not(.journal-pathway-label) {
 }
 
 html[data-theme="new"] .journal-pathway ul {
+  margin-top: 32px;
   border-color: var(--institution-line);
 }
 
