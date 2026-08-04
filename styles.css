@@ -3370,7 +3370,7 @@ html[data-theme="new"] .journal-copyright {
 /* Association governance and membership. */
 html[data-theme="new"] .journal-bureau {
   border-bottom: 1px solid var(--institution-line);
-  background: var(--institution-paper);
+  background: var(--institution-mist);
   padding: 80px 0;
 }
 
