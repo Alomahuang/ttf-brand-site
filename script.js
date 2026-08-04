@@ -116,44 +116,6 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-document.querySelectorAll("[data-activity-carousel]").forEach((carousel) => {
-  const track = carousel.querySelector("[data-activity-track]");
-  const buttons = carousel.querySelectorAll("[data-activity-scroll]");
-  if (!track || !buttons.length) return;
-
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  const updateControls = () => {
-    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-    buttons.forEach((button) => {
-      const direction = Number(button.dataset.activityScroll);
-      const atBoundary = direction < 0 ? track.scrollLeft <= 12 : track.scrollLeft >= maxScroll - 12;
-      button.disabled = atBoundary;
-    });
-  };
-
-  const moveTrack = (direction) => {
-    const firstCard = track.querySelector(".journal-service");
-    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
-    const distance = firstCard ? firstCard.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
-    track.scrollBy({ left: direction * distance, behavior: reducedMotion.matches ? "auto" : "smooth" });
-  };
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => moveTrack(Number(button.dataset.activityScroll)));
-  });
-
-  track.addEventListener("keydown", (event) => {
-    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-    event.preventDefault();
-    moveTrack(event.key === "ArrowLeft" ? -1 : 1);
-  });
-
-  track.addEventListener("scroll", () => window.requestAnimationFrame(updateControls), { passive: true });
-  window.addEventListener("resize", updateControls, { passive: true });
-  updateControls();
-});
-
 document.querySelectorAll(".journal-form").forEach((joinForm) => {
   const formFeedback = joinForm.querySelector(".form-feedback");
   if (!formFeedback) return;
