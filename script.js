@@ -1,8 +1,4 @@
-const navToggle = document.querySelector(".nav-toggle");
-const siteNav = document.querySelector(".site-nav");
-const yearTarget = document.querySelector("#current-year");
-const joinForm = document.querySelector(".join-form");
-const formFeedback = document.querySelector(".form-feedback");
+const yearTargets = document.querySelectorAll("#current-year, [data-current-year]");
 const pageLanguage = document.documentElement.lang || "fr";
 const isChinese = pageLanguage.startsWith("zh");
 const themeButtons = document.querySelectorAll("[data-theme-option]");
@@ -11,6 +7,17 @@ const themeStorageKey = "ttf-style";
 const setTheme = (theme, persist = true) => {
   const nextTheme = theme === "old" ? "old" : "new";
   document.documentElement.dataset.theme = nextTheme;
+  document.documentElement.classList.remove("nav-open");
+
+  document.querySelectorAll(".site-nav.is-open, .journal-nav.is-open").forEach((nav) => {
+    nav.classList.remove("is-open");
+  });
+
+  document.querySelectorAll(".nav-toggle.is-open, .journal-menu-toggle.is-open").forEach((toggle) => {
+    toggle.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", isChinese ? "開啟選單" : "Ouvrir le menu");
+  });
 
   themeButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.themeOption === nextTheme));
@@ -31,41 +38,52 @@ themeButtons.forEach((button) => {
   button.addEventListener("click", () => setTheme(button.dataset.themeOption));
 });
 
-if (yearTarget) {
-  yearTarget.textContent = new Date().getFullYear();
-}
+yearTargets.forEach((target) => {
+  target.textContent = new Date().getFullYear();
+});
 
-if (navToggle && siteNav) {
-  const setNavState = (isOpen) => {
-    siteNav.classList.toggle("is-open", isOpen);
-    navToggle.classList.toggle("is-open", isOpen);
-    document.documentElement.classList.toggle("nav-open", isOpen);
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-    navToggle.setAttribute(
-      "aria-label",
-      isChinese ? (isOpen ? "關閉選單" : "開啟選單") : isOpen ? "Fermer le menu" : "Ouvrir le menu"
-    );
-  };
+const navPairs = [
+  [document.querySelector(".nav-toggle"), document.querySelector(".site-nav")],
+  [document.querySelector(".journal-menu-toggle"), document.querySelector(".journal-nav")],
+].filter(([toggle, nav]) => toggle && nav);
 
-  navToggle.addEventListener("click", () => {
-    setNavState(navToggle.getAttribute("aria-expanded") !== "true");
+const setNavState = (toggle, nav, isOpen) => {
+  nav.classList.toggle("is-open", isOpen);
+  toggle.classList.toggle("is-open", isOpen);
+  document.documentElement.classList.toggle("nav-open", isOpen);
+  toggle.setAttribute("aria-expanded", String(isOpen));
+  toggle.setAttribute(
+    "aria-label",
+    isChinese ? (isOpen ? "關閉選單" : "開啟選單") : isOpen ? "Fermer le menu" : "Ouvrir le menu"
+  );
+};
+
+navPairs.forEach(([toggle, nav]) => {
+  toggle.addEventListener("click", () => {
+    const willOpen = toggle.getAttribute("aria-expanded") !== "true";
+    navPairs.forEach(([otherToggle, otherNav]) => setNavState(otherToggle, otherNav, false));
+    setNavState(toggle, nav, willOpen);
   });
 
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setNavState(false));
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setNavState(toggle, nav, false));
   });
+});
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
-      setNavState(false);
-      navToggle.focus();
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+
+  navPairs.forEach(([toggle, nav]) => {
+    if (toggle.getAttribute("aria-expanded") === "true") {
+      setNavState(toggle, nav, false);
+      toggle.focus();
     }
   });
-}
+});
 
-const tagline = document.querySelector(".tagline-reveal");
+const taglines = document.querySelectorAll(".tagline-reveal");
 
-if (tagline) {
+taglines.forEach((tagline) => {
   const taglineText = tagline.textContent.trim();
   const segments = isChinese ? Array.from(taglineText) : taglineText.split(/(\s+)/);
   let wordIndex = 0;
@@ -87,12 +105,12 @@ if (tagline) {
     tagline.append(word);
     wordIndex += 1;
   });
-}
+});
 
 const revealTargets = document.querySelectorAll(
   ".opening-statement, .opening-proof, #publics .section-intro, #publics .comparison, " +
     "#fonctionnement .section-grid > div, #fonctionnement .method-list, " +
-    "#rejoindre .contact-grid > div:first-child, #rejoindre .join-form, .legal-card"
+    "#rejoindre .contact-grid > div:first-child, #rejoindre .join-form, .legal-card, .journal-reveal"
 );
 
 revealTargets.forEach((target) => target.classList.add("new-reveal"));
@@ -112,7 +130,7 @@ if ("IntersectionObserver" in window) {
 
   revealTargets.forEach((target) => revealObserver.observe(target));
 
-  if (tagline) {
+  if (taglines.length) {
     const wordObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -125,14 +143,20 @@ if ("IntersectionObserver" in window) {
       { threshold: 0.2, rootMargin: "0px 0px -18% 0px" }
     );
 
-    tagline.querySelectorAll(".tagline-word").forEach((word) => wordObserver.observe(word));
+    taglines.forEach((tagline) => {
+      tagline.querySelectorAll(".tagline-word").forEach((word) => wordObserver.observe(word));
+    });
   }
 } else {
   revealTargets.forEach((target) => target.classList.add("is-visible"));
-  tagline?.querySelectorAll(".tagline-word").forEach((word) => word.classList.add("is-active"));
+  taglines.forEach((tagline) => {
+    tagline.querySelectorAll(".tagline-word").forEach((word) => word.classList.add("is-active"));
+  });
 }
 
-if (joinForm && formFeedback) {
+document.querySelectorAll(".join-form, .journal-form").forEach((joinForm) => {
+  const formFeedback = joinForm.querySelector(".form-feedback");
+  if (!formFeedback) return;
   const submitButton = joinForm.querySelector('button[type="submit"]');
 
   joinForm.addEventListener("submit", async (event) => {
@@ -185,4 +209,4 @@ if (joinForm && formFeedback) {
       }
     }
   });
-}
+});
