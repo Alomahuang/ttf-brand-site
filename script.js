@@ -116,6 +116,43 @@ if ("IntersectionObserver" in window) {
   });
 }
 
+document.querySelectorAll(".journal-membership").forEach((membership) => {
+  const marker = membership.previousElementSibling;
+  const header = document.querySelector(".journal-header");
+  if (!marker || !header) return;
+
+  let stickyOffset = header.getBoundingClientRect().height;
+  let isCondensed = membership.classList.contains("is-condensed");
+  let frameId = 0;
+  const releaseBuffer = 64;
+
+  const updateCondensedState = () => {
+    frameId = 0;
+    stickyOffset = header.getBoundingClientRect().height;
+
+    const markerTop = marker.getBoundingClientRect().top;
+    const hasReachedStickyPosition = markerTop <= stickyOffset;
+    const hasClearedStickyPosition = markerTop > stickyOffset + releaseBuffer;
+
+    if (!isCondensed && hasReachedStickyPosition) {
+      isCondensed = true;
+      membership.classList.add("is-condensed");
+    } else if (isCondensed && hasClearedStickyPosition) {
+      isCondensed = false;
+      membership.classList.remove("is-condensed");
+    }
+  };
+
+  const scheduleCondensedState = () => {
+    if (frameId) return;
+    frameId = window.requestAnimationFrame(updateCondensedState);
+  };
+
+  window.addEventListener("scroll", scheduleCondensedState, { passive: true });
+  window.addEventListener("resize", scheduleCondensedState);
+  updateCondensedState();
+});
+
 document.querySelectorAll(".journal-form").forEach((joinForm) => {
   const formFeedback = joinForm.querySelector(".form-feedback");
   if (!formFeedback) return;
