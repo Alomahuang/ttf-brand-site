@@ -3421,6 +3421,21 @@ html[data-theme="new"] .journal-bureau-list dd {
   font-weight: 600;
 }
 
+html[data-theme="new"] .journal-bureau-list dd a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: #8fa0b2;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+html[data-theme="new"] .journal-bureau-list dd a:hover,
+html[data-theme="new"] .journal-bureau-list dd a:focus-visible {
+  color: var(--institution-blue);
+  text-decoration-color: currentColor;
+}
+
 html[data-theme="new"] .journal-membership {
   border-bottom: 1px solid #0f3f6c;
   background: var(--institution-blue);

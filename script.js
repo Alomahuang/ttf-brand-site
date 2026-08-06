@@ -197,8 +197,8 @@ document.querySelectorAll(".journal-form").forEach((joinForm) => {
     } catch (error) {
       console.error(error);
       formFeedback.textContent = isChinese
-        ? "目前無法送出需求，請稍後再試，或直接寄信至 tess.hsu@gmail.com。"
-        : "L'envoi a échoué. Réessayez plus tard ou écrivez à tess.hsu@gmail.com.";
+        ? "目前無法送出需求，請稍後再試，或直接寄信至 ttf-tech@zohomail.eu。"
+        : "L'envoi a échoué. Réessayez plus tard ou écrivez à ttf-tech@zohomail.eu.";
       formFeedback.classList.add("is-error");
     } finally {
       if (submitButton) {
