@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ttf-tech.github.io/branding-site/sitemap.xml

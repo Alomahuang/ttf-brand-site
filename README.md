@@ -12,6 +12,6 @@ Bilingual French and Traditional Chinese website for Taiwan Tech France Associat
 
 Serve the repository root with any static file server, then open `index.html`.
 
-The published GitHub Pages site is intended to live at:
+The published GitHub Pages site lives at:
 
-`https://alomahuang.github.io/ttf-brand-site/`
+`https://ttf-tech.github.io/branding-site/`
