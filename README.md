@@ -4,8 +4,9 @@ Bilingual French and Traditional Chinese website for Taiwan Tech France Associat
 
 ## Pages
 
-- `index.html`: French version
-- `zh.html`: Traditional Chinese version
+- `index.html`: Traditional Chinese version (default)
+- `fr.html`: French version
+- `zh.html`: Traditional Chinese legacy URL
 - `mentions-legales.html`: Legal notice
 
 ## Local preview
