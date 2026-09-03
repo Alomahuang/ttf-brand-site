@@ -3987,7 +3987,7 @@ html[data-theme="new"] .journal-partner-link {
   cursor: grab;
   text-decoration: none;
   -webkit-user-drag: none;
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
 html[data-theme="new"] .journal-partners-viewport.is-dragging .journal-partner-link {
@@ -3996,8 +3996,11 @@ html[data-theme="new"] .journal-partners-viewport.is-dragging .journal-partner-l
 
 html[data-theme="new"] .journal-partner-link:hover {
   border-color: var(--institution-blue);
-  box-shadow: 0 10px 24px rgba(20, 40, 59, 0.08);
-  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 1px var(--institution-blue), 0 10px 24px rgba(20, 40, 59, 0.1);
+}
+
+html[data-theme="new"] .journal-partner-link:hover .journal-partner-arrow {
+  transform: translateX(3px);
 }
 
 html[data-theme="new"] .journal-partner-mark {
@@ -4047,6 +4050,7 @@ html[data-theme="new"] .journal-partner-arrow {
   color: var(--institution-red);
   font-size: 1rem;
   line-height: 1;
+  transition: transform 180ms ease;
 }
 
 html[data-theme="new"] .journal-partner-link:focus-visible {
@@ -4090,7 +4094,8 @@ html[data-theme="new"] .journal-partner-link:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html[data-theme="new"] .journal-partner-link {
+  html[data-theme="new"] .journal-partner-link,
+  html[data-theme="new"] .journal-partner-arrow {
     transition: none;
   }
 }
