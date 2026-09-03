@@ -209,3 +209,241 @@ document.querySelectorAll(".journal-form").forEach((joinForm) => {
     }
   });
 });
+
+document.querySelectorAll("[data-partners-carousel]").forEach((carousel) => {
+  const carouselFrame = carousel.parentElement;
+  const track = carousel.querySelector(".journal-partners-track");
+  const originalCards = Array.from(carousel.querySelectorAll(".journal-partner-card"));
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  if (!track || originalCards.length < 2) return;
+
+  const originalCardCount = originalCards.length;
+  const interactionRegion = carouselFrame || carousel;
+  const pauseReasons = new Set();
+  let cycleWidth = 0;
+
+  const pauseAutoScroll = (reason) => pauseReasons.add(reason);
+  const resumeAutoScroll = (reason) => pauseReasons.delete(reason);
+  const isAutoScrollPaused = () => pauseReasons.size > 0;
+
+  carousel.querySelectorAll("a, img").forEach((element) => {
+    element.setAttribute("draggable", "false");
+  });
+
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("a, button").forEach((element) => {
+      element.setAttribute("tabindex", "-1");
+    });
+    track.appendChild(clone);
+  });
+
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("a, button").forEach((element) => {
+      element.setAttribute("tabindex", "-1");
+    });
+    track.appendChild(clone);
+  });
+
+  const dragState = {
+    active: false,
+    axis: null,
+    hasMoved: false,
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    lastX: 0,
+  };
+  let suppressClickUntil = 0;
+  let autoScrollRemainder = 0;
+  let touchResumeTimer = 0;
+
+  const getCycleWidth = () => {
+    const firstCard = track.children[0];
+    const secondSetCard = track.children[originalCardCount];
+    if (!firstCard || !secondSetCard) return 0;
+    return secondSetCard.offsetLeft - firstCard.offsetLeft;
+  };
+
+  const normalizeScrollPosition = () => {
+    if (!cycleWidth) return;
+
+    if (carousel.scrollLeft <= 0) {
+      carousel.scrollLeft += cycleWidth;
+    }
+    if (carousel.scrollLeft >= cycleWidth * 2) {
+      carousel.scrollLeft -= cycleWidth;
+    }
+  };
+
+  const refreshCycleWidth = () => {
+    const previousCycleWidth = cycleWidth;
+    const positionWithinCycle = previousCycleWidth
+      ? ((carousel.scrollLeft - previousCycleWidth) % previousCycleWidth + previousCycleWidth) % previousCycleWidth
+      : 0;
+
+    cycleWidth = getCycleWidth();
+    if (!cycleWidth) return;
+
+    carousel.scrollLeft = cycleWidth + positionWithinCycle;
+  };
+
+  const getScrollDistance = () => Math.max(carousel.clientWidth * 0.72, 160);
+
+  const moveCarousel = (direction) => {
+    const distance = getScrollDistance() * direction;
+    if (typeof carousel.scrollTo === "function") {
+      carousel.scrollTo({
+        left: carousel.scrollLeft + distance,
+        behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+      });
+    } else {
+      carousel.scrollLeft += distance;
+      normalizeScrollPosition();
+    }
+  };
+
+  const endDrag = (event) => {
+    if (!dragState.active) return;
+    if (event?.pointerId !== undefined && event.pointerId !== dragState.pointerId) return;
+
+    const wasDragged = dragState.hasMoved;
+    const pointerId = dragState.pointerId;
+
+    dragState.active = false;
+    dragState.axis = null;
+    dragState.hasMoved = false;
+    dragState.pointerId = null;
+    carousel.classList.remove("is-dragging");
+    interactionRegion.classList.remove("is-dragging");
+
+    if (pointerId !== null && interactionRegion.hasPointerCapture?.(pointerId)) {
+      interactionRegion.releasePointerCapture(pointerId);
+    }
+
+    if (wasDragged) {
+      suppressClickUntil = window.performance.now() + 200;
+    }
+  };
+
+  interactionRegion.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "touch") return;
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    if (dragState.active) return;
+
+    dragState.active = true;
+    dragState.pointerId = event.pointerId;
+    dragState.startX = event.clientX;
+    dragState.startY = event.clientY;
+    dragState.lastX = event.clientX;
+    dragState.axis = null;
+    dragState.hasMoved = false;
+    carousel.classList.add("is-dragging");
+    interactionRegion.classList.add("is-dragging");
+  });
+
+  interactionRegion.addEventListener("pointermove", (event) => {
+    if (!dragState.active || event.pointerId !== dragState.pointerId) return;
+
+    const totalDeltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
+
+    if (!dragState.axis) {
+      if (Math.max(Math.abs(totalDeltaX), Math.abs(deltaY)) < 6) return;
+      if (event.pointerType !== "mouse" && Math.abs(deltaY) > Math.abs(totalDeltaX)) {
+        endDrag();
+        return;
+      }
+      dragState.axis = "horizontal";
+    }
+
+    if (dragState.axis !== "horizontal") return;
+    const deltaX = event.clientX - dragState.lastX;
+    dragState.hasMoved = true;
+    interactionRegion.setPointerCapture?.(event.pointerId);
+    event.preventDefault();
+    carousel.scrollLeft -= deltaX;
+    dragState.lastX = event.clientX;
+    normalizeScrollPosition();
+  });
+
+  interactionRegion.addEventListener("click", (event) => {
+    if (window.performance.now() >= suppressClickUntil) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClickUntil = 0;
+  }, true);
+
+  carousel.addEventListener("keydown", (event) => {
+    if (event.target !== carousel) return;
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveCarousel(-1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveCarousel(1);
+    }
+  });
+
+  interactionRegion.addEventListener("pointerup", endDrag);
+  interactionRegion.addEventListener("pointercancel", endDrag);
+  interactionRegion.addEventListener("lostpointercapture", endDrag);
+  interactionRegion.addEventListener("dragstart", (event) => event.preventDefault());
+  window.addEventListener("pointerup", endDrag);
+  window.addEventListener("pointercancel", endDrag);
+
+  carousel.addEventListener("touchstart", () => {
+    window.clearTimeout(touchResumeTimer);
+    pauseAutoScroll("touch");
+  }, { passive: true });
+
+  const resumeAfterTouch = () => {
+    window.clearTimeout(touchResumeTimer);
+    touchResumeTimer = window.setTimeout(() => resumeAutoScroll("touch"), 900);
+  };
+
+  carousel.addEventListener("touchend", resumeAfterTouch, { passive: true });
+  carousel.addEventListener("touchcancel", resumeAfterTouch, { passive: true });
+
+  if (supportsHover.matches) {
+    interactionRegion.addEventListener("mouseenter", () => pauseAutoScroll("hover"));
+    interactionRegion.addEventListener("mouseleave", () => resumeAutoScroll("hover"));
+  }
+
+  const autoScroll = (timestamp) => {
+    if (!autoScroll.lastTimestamp) autoScroll.lastTimestamp = timestamp;
+    const elapsed = Math.min(timestamp - autoScroll.lastTimestamp, 50);
+    autoScroll.lastTimestamp = timestamp;
+
+    if (
+      cycleWidth &&
+      !prefersReducedMotion.matches &&
+      !document.hidden &&
+      !dragState.active &&
+      !isAutoScrollPaused()
+    ) {
+      autoScrollRemainder += (elapsed * 20) / 1000;
+      const pixelStep = Math.floor(autoScrollRemainder);
+
+      if (pixelStep > 0) {
+        carousel.scrollLeft += pixelStep;
+        autoScrollRemainder -= pixelStep;
+        normalizeScrollPosition();
+      }
+    }
+
+    window.requestAnimationFrame(autoScroll);
+  };
+
+  carousel.addEventListener("scroll", normalizeScrollPosition, { passive: true });
+  window.addEventListener("resize", refreshCycleWidth);
+  window.addEventListener("load", refreshCycleWidth, { once: true });
+  refreshCycleWidth();
+  window.requestAnimationFrame(autoScroll);
+});
